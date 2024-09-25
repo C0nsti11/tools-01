@@ -1,1 +1,3 @@
 https://send.mni.li/download/6707491369c4910a/#7HbZu3N6rhdpF6s95C30vg
+https://download.nomachine.com/download/8.13/Linux/nomachine_8.13.1_1_amd64.deb
+sudo apt install x2goserver x2goserver-xsession -y
