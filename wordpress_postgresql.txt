@@ -1,0 +1,35 @@
+#https://medium.com/@shoaibhassan_/install-wordpress-with-postgresql-using-apache-in-5-min-a26078d496fb
+#ChatGPT
+
+Step 1: Create Database and User in your PostgreSQL
+open your terminal in Linux and run below commands in sequence.
+
+$ sudo su - postgres
+$ psql
+$ create database your_database;
+$ create user your_user with password ‘your_password’;
+$ grant all privileges on database your_database to your_user;
+$ \q 
+Step 2: Download WordPress
+# Point to your Server directory 
+$ cd /var/www/html
+$ wget https://wordpress.org/latest.tar.gz
+# Then unzip the package using
+$ tar -xzvf latest.tar.gz
+# Remove the zip file
+$ rm -rf latest.tar.gz
+Step 3: Download and configure the Fork version of WP4PG in your WordPress directory
+$ cd wp-content // go to wp-content
+$ git clone https://github.com/kevinoid/postgresql-for-wordpress.git
+$ mv postgresql-for-wordpress/pg4wp Pg4wp
+$ rm -rf postgresql-for-wordpress
+$ cp Pg4wp/db.php db.php
+Step 4: Configure the wp-config.php
+/** The name of the database for WordPress */
+define('DB_NAME', 'your PostgreSQL database name will go here');
+/** MySQL database username */
+define('DB_USER', 'your PostgreSQL database username will go here');
+/** MySQL database password */
+define('DB_PASSWORD', 'your PostgreSQL database password will go here');
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
